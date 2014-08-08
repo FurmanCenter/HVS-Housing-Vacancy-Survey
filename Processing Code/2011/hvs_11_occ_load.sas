@@ -6,9 +6,18 @@
 *       file written:   occ11_raw.sas7bdat
 */
 
+* Change this to reflect the location of the downloaded GitHub repository;
 %let ProjectRoot = J:\DEPT\REUP\Data\New York City\HVS - Housing Vacancy Survey;
+
+* Year of the survey;
 %let YY = 11;
+
+/* NB: Different years may require slightly different processing code!
+See the comments in the data step for what should be changed for a given year.
+*/
 %put &ProjectRoot;
+
+* Load a config file that sets libnames and filenames;
 %include "&ProjectRoot.\config.sas";
 
 
