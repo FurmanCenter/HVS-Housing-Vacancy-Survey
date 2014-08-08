@@ -6,13 +6,14 @@
 *       file written:   occ11_raw.sas7bdat
 */
 
-*libname hvs11 "J:\DEPT\REUP\Core Data\HVS - Housing Vacancy Survey\2011\SAS";
-*filename occ11 'J:\DEPT\REUP\Core Data\HVS - Housing Vacancy Survey\2011\Raw Data\lng11_occ11_web.dat';
-filename occ11 '..\..\Data\2011\Raw\lng11_occ11_web.dat';
+%let ProjectRoot = J:\DEPT\REUP\Data\New York City\HVS - Housing Vacancy Survey;
+%let YY = 11;
+%put &ProjectRoot;
+%include "&ProjectRoot.\config.sas";
 
 
-data hvs.occ11_raw;
-     infile occ11 lrecl=598;
+data hvs_raw.occ&YY._raw;
+     infile occ_in lrecl=598;
      input
      rectype        1
      borough        2

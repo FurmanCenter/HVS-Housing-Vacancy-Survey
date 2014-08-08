@@ -1,16 +1,21 @@
-/*      This program reads data from the 2008 HVS-Vacant Units file.
-
-                file read:      vac08.dat
-*               file written:   hvs08v.sas7bdat
+/*
+*      	This program creates a SAS dataset of data for occupied housing units     
+		for the 2011 HVS.
+*
+*       file read:      lng11_occ11_web.dat
+*       file written:   occ11_raw.sas7bdat
 */
 
-options replace center linesize=80;
+%let ProjectRoot = J:\DEPT\REUP\Data\New York City\HVS - Housing Vacancy Survey;
+%let YY = 11;
+%put &ProjectRoot;
+%include "&ProjectRoot.\config.sas";
 
-libname hvs "J:\DEPT\REUP\Core Data\HVS - Housing Vacancy Survey\2011\SAS";
-filename hvs11 'J:\DEPT\REUP\Core Data\HVS - Housing Vacancy Survey\2011\Raw Data\lng11_vac11_web.dat';
+*libname hvs "J:\DEPT\REUP\Core Data\HVS - Housing Vacancy Survey\2011\SAS";
+*filename hvs11 'J:\DEPT\REUP\Core Data\HVS - Housing Vacancy Survey\2011\Raw Data\lng11_vac11_web.dat';
 
-data hvs.vac11_raw;
-        infile hvs11 lrecl=107;
+data hvs_raw.vac&YY._raw;
+        infile vac_in lrecl=107;
      input
      rectype        1
      borough        2
